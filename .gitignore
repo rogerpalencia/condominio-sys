@@ -1,0 +1,63 @@
+# ===============================
+# SISTEMA DE CONDOMINIO PHP - GITIGNORE
+# ===============================
+
+# Archivos de entorno / credenciales
+.env
+.env.*
+config.php
+config_privado.php
+config-local.php
+*config*.local.php
+core/db.php.ini
+core/config.php
+
+# Archivos de logs
+*.log
+logs/
+debug_*.log
+sql_log.txt
+debug_form.log
+debug_form_post.log
+debug_save_post.log
+debug_edit.log
+
+# Archivos temporales
+*.tmp
+*.cache
+tmp/
+cache/
+
+# PDFs y archivos generados en runtime
+uploads/
+reportes_masivos/
+gestordocs/
+public/pdfs/
+public/reportes/
+
+# Backups
+*.sql
+*.zip
+*.rar
+backup/
+backups/
+
+# Vendor (si usas composer)
+vendor/
+
+# Node (si existiera)
+node_modules/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Cualquier archivo que NO quieres versionar
+sql.txt
+consulta.txt
+

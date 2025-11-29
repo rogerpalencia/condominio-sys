@@ -1,0 +1,10 @@
+[13-Mar-2025 12:09:20 America/Boise] PHP Warning:  Undefined global variable $_SESSION in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2
+[13-Mar-2025 12:09:20 America/Boise] PHP Warning:  Trying to access array offset on value of type null in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2
+[13-Mar-2025 12:57:21 America/Boise] PHP Warning:  Undefined global variable $_SESSION in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2
+[13-Mar-2025 12:57:21 America/Boise] PHP Warning:  Trying to access array offset on value of type null in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2
+[13-Mar-2025 12:57:22 America/Boise] PHP Warning:  Undefined variable $por_rev_pag_adu_cant in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 86
+[13-Mar-2025 12:57:22 America/Boise] PHP Warning:  Undefined variable $por_rev_pag_adu_sum in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 93
+[13-Mar-2025 12:57:22 America/Boise] PHP Warning:  Undefined variable $por_rev_pag_adu_cant in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 164
+[13-Mar-2025 12:57:22 America/Boise] PHP Warning:  Undefined variable $por_rev_pag_adu_sum in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 165
+[13-Mar-2025 12:58:04 America/Boise] PHP Warning:  Undefined global variable $_SESSION in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2
+[13-Mar-2025 12:58:04 America/Boise] PHP Warning:  Trying to access array offset on value of type null in /home3/tributos/public_html/Admin/witgets/witget_aduana1.php on line 2

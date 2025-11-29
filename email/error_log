@@ -1,0 +1,773 @@
+[12-Sep-2025 23:47:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "email.envio" does not exist
+LINE 5:   FROM email.envio e
+               ^ in /home/rhodium/public_html/condominio/sys/email/email_status.php:25
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/email_status.php(25): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/email_status.php on line 25
+[12-Sep-2025 23:47:52 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "email.envio" does not exist
+LINE 5:   FROM email.envio e
+               ^ in /home/rhodium/public_html/condominio/sys/email/email_status.php:25
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/email_status.php(25): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/email_status.php on line 25
+[12-Sep-2025 23:47:54 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[12-Sep-2025 23:48:00 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[12-Sep-2025 23:52:41 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[13-Sep-2025 00:05:41 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[13-Sep-2025 00:05:44 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[13-Sep-2025 00:05:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "email.envio" does not exist
+LINE 5:   FROM email.envio e
+               ^ in /home/rhodium/public_html/condominio/sys/email/email_status.php:25
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/email_status.php(25): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/email_status.php on line 25
+[13-Sep-2025 00:05:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "email.envio" does not exist
+LINE 5:   FROM email.envio e
+               ^ in /home/rhodium/public_html/condominio/sys/email/email_status.php:25
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/email_status.php(25): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/email_status.php on line 25
+[13-Sep-2025 00:05:50 UTC] PHP Parse error:  Unmatched ')' in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 234
+[13-Sep-2025 20:39:03 UTC] PHP Fatal error:  Uncaught Error: Class "PHPMailer\PHPMailer\Exception" not found in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 29
+[13-Sep-2025 20:39:08 UTC] PHP Fatal error:  Uncaught Error: Class "PHPMailer\PHPMailer\Exception" not found in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 29
+[14-Sep-2025 00:39:01 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 00:39:01 UTC] Parametros recibidos: id_condominio=, tipo=notificacion, id=270, destino=default
+[14-Sep-2025 00:39:01 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 00:39:44 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 00:39:44 UTC] Parametros recibidos: id_condominio=, tipo=notificacion, id=270, destino=default
+[14-Sep-2025 00:39:44 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:09:15 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:09:15 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default
+[14-Sep-2025 01:09:15 UTC] No se encontró configuración de email para el condominio 5
+[14-Sep-2025 01:09:59 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:09:59 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=287, destino=default
+[14-Sep-2025 01:09:59 UTC] No se encontró configuración de email para el condominio 5
+[14-Sep-2025 01:10:14 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:10:14 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=287, destino=default
+[14-Sep-2025 01:10:14 UTC] No se encontró configuración de email para el condominio 5
+[14-Sep-2025 01:10:23 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:10:23 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=287, destino=default
+[14-Sep-2025 01:10:23 UTC] No se encontró configuración de email para el condominio 5
+[14-Sep-2025 01:11:10 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:11:10 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=287, destino=default
+[14-Sep-2025 01:11:10 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[14-Sep-2025 01:11:10 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=287)
+[14-Sep-2025 01:11:10 UTC] Correo encontrado para notificacion 287: rogerp.alencia@gmail.com
+[14-Sep-2025 01:11:11 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[14-Sep-2025 01:11:11 UTC] ==== [enviar_email.php] FIN ====
+[14-Sep-2025 01:18:31 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:18:31 UTC] Parametros recibidos: id_condominio=5, tipo=, id=270, destino=default
+[14-Sep-2025 01:18:31 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:20:18 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:20:18 UTC] Parametros recibidos: id_condominio=5, tipo=, id=270, destino=default
+[14-Sep-2025 01:20:18 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:20:50 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:20:50 UTC] Parametros recibidos: id_condominio=5, tipo=, id=270, destino=default
+[14-Sep-2025 01:20:50 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:20:54 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:20:54 UTC] Parametros recibidos: id_condominio=5, tipo=, id=287, destino=default
+[14-Sep-2025 01:20:54 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:20:58 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:20:58 UTC] Parametros recibidos: id_condominio=5, tipo=, id=287, destino=default
+[14-Sep-2025 01:20:58 UTC] Error: faltan parámetros obligatorios.
+[14-Sep-2025 01:22:10 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:22:10 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default
+[14-Sep-2025 01:22:10 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[14-Sep-2025 01:22:10 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[14-Sep-2025 01:22:10 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[14-Sep-2025 01:22:15 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[14-Sep-2025 01:22:15 UTC] ==== [enviar_email.php] FIN ====
+[14-Sep-2025 01:22:53 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:22:53 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=287, destino=default
+[14-Sep-2025 01:22:53 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[14-Sep-2025 01:22:53 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=287)
+[14-Sep-2025 01:22:53 UTC] Correo encontrado para notificacion 287: rogerp.alencia@gmail.com
+[14-Sep-2025 01:22:53 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[14-Sep-2025 01:22:53 UTC] ==== [enviar_email.php] FIN ====
+[14-Sep-2025 01:25:55 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:25:55 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default
+[14-Sep-2025 01:25:55 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[14-Sep-2025 01:25:55 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[14-Sep-2025 01:25:55 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[14-Sep-2025 01:25:55 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[14-Sep-2025 01:25:55 UTC] ==== [enviar_email.php] FIN ====
+[14-Sep-2025 01:30:59 UTC] ==== [enviar_email.php] INICIO ====
+[14-Sep-2025 01:30:59 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=rogerpalencia@gmail.com
+[14-Sep-2025 01:30:59 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[14-Sep-2025 01:30:59 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[14-Sep-2025 01:30:59 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[14-Sep-2025 01:30:59 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:05:02 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:05:02 UTC] Parametros recibidos: id_condominio=7, tipo=notificacion, id=294, destino=default
+[16-Sep-2025 19:05:02 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:05:02 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=294)
+[16-Sep-2025 19:05:02 UTC] Correo encontrado para notificacion 294: 
+[16-Sep-2025 19:05:02 UTC] Error PHPMailer: El destinatario está vacío.
+[16-Sep-2025 19:05:02 UTC] ErrorInfo: 
+[16-Sep-2025 19:05:02 UTC] Debug SMTP: 
+[16-Sep-2025 19:05:02 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:08:59 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:08:59 UTC] Parametros recibidos: id_condominio=7, tipo=notificacion, id=294, destino=default
+[16-Sep-2025 19:08:59 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:08:59 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=294)
+[16-Sep-2025 19:08:59 UTC] Correo encontrado para notificacion 294: 
+[16-Sep-2025 19:08:59 UTC] Error PHPMailer: El destinatario está vacío.
+[16-Sep-2025 19:08:59 UTC] ErrorInfo: 
+[16-Sep-2025 19:08:59 UTC] Debug SMTP: 
+[16-Sep-2025 19:08:59 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:09:19 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:09:19 UTC] Parametros recibidos: id_condominio=7, tipo=notificacion, id=294, destino=rogerpalencia@gmail.com
+[16-Sep-2025 19:09:19 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:09:19 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[16-Sep-2025 19:09:20 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[16-Sep-2025 19:09:20 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:10:58 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:10:58 UTC] Parametros recibidos: id_condominio=7, tipo=notificacion, id=294, destino=default
+[16-Sep-2025 19:10:58 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:10:58 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=294)
+[16-Sep-2025 19:10:58 UTC] Correo encontrado para notificacion 294: 
+[16-Sep-2025 19:10:58 UTC] Error PHPMailer: El destinatario está vacío.
+[16-Sep-2025 19:10:58 UTC] ErrorInfo: 
+[16-Sep-2025 19:10:58 UTC] Debug SMTP: 
+[16-Sep-2025 19:10:58 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:11:05 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:11:05 UTC] Parametros recibidos: id_condominio=7, tipo=notificacion, id=294, destino=rogerpalencia@gmail.com
+[16-Sep-2025 19:11:05 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:11:05 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[16-Sep-2025 19:11:05 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[16-Sep-2025 19:11:05 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:12:05 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:12:05 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default
+[16-Sep-2025 19:12:05 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:12:05 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[16-Sep-2025 19:12:05 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[16-Sep-2025 19:12:05 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[16-Sep-2025 19:12:05 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:12:26 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:12:26 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=rogerpalencia@gmail.com
+[16-Sep-2025 19:12:26 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:12:26 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[16-Sep-2025 19:12:26 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[16-Sep-2025 19:12:26 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:29:32 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:29:32 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[16-Sep-2025 19:29:32 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:29:32 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[16-Sep-2025 19:29:32 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[16-Sep-2025 19:29:32 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[16-Sep-2025 19:29:32 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:33:20 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:33:20 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=rogerpalencia@gmail.com, token=fb0e7f207d3afdc410df2af1f63eb21f
+[16-Sep-2025 19:33:20 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:33:20 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[16-Sep-2025 19:33:20 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[16-Sep-2025 19:33:20 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:38:12 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:38:12 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[16-Sep-2025 19:38:12 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:38:12 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[16-Sep-2025 19:38:12 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[16-Sep-2025 19:38:12 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[16-Sep-2025 19:38:12 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:42:19 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:42:19 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[16-Sep-2025 19:42:19 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:42:19 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[16-Sep-2025 19:42:19 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[16-Sep-2025 19:42:19 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[16-Sep-2025 19:42:19 UTC] ==== [enviar_email.php] FIN ====
+[16-Sep-2025 19:42:33 UTC] ==== [enviar_email.php] INICIO ====
+[16-Sep-2025 19:42:33 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=270, destino=rogerpalencia@gmail.com, token=fb0e7f207d3afdc410df2af1f63eb21f
+[16-Sep-2025 19:42:33 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[16-Sep-2025 19:42:33 UTC] Correo destino explícito: rogerpalencia@gmail.com
+[16-Sep-2025 19:42:33 UTC] Correo enviado correctamente a rogerpalencia@gmail.com
+[16-Sep-2025 19:42:33 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 01:23:22 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 01:23:22 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=269, destino=default, token=de9458f501d076f46fd228be72544d27
+[17-Sep-2025 01:23:22 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 01:23:22 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=269)
+[17-Sep-2025 01:23:22 UTC] Correo encontrado para notificacion 269: rogerp.alencia@gmail.com
+[17-Sep-2025 01:23:22 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[17-Sep-2025 01:23:22 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 01:23:31 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 01:23:31 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=286, destino=default, token=1e87cb79b872ed3a970619fceca81291
+[17-Sep-2025 01:23:31 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 01:23:31 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=286)
+[17-Sep-2025 01:23:31 UTC] Correo encontrado para notificacion 286: rogerp.alencia@gmail.com
+[17-Sep-2025 01:23:31 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[17-Sep-2025 01:23:31 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 23:46:27 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 23:46:27 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[17-Sep-2025 23:46:27 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 23:46:27 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[17-Sep-2025 23:46:27 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[17-Sep-2025 23:46:27 UTC] Error PHPMailer: Tipo de envío no soportado: recibo
+[17-Sep-2025 23:46:27 UTC] ErrorInfo: 
+[17-Sep-2025 23:46:27 UTC] Debug SMTP: 
+[17-Sep-2025 23:46:27 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 23:46:30 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 23:46:30 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[17-Sep-2025 23:46:30 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 23:46:30 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[17-Sep-2025 23:46:30 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[17-Sep-2025 23:46:31 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[17-Sep-2025 23:46:31 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 23:55:34 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 23:55:34 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=290, destino=default, token=b400e4651d0f8def6a7500bf90969372
+[17-Sep-2025 23:55:34 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 23:55:34 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=290)
+[17-Sep-2025 23:55:34 UTC] Correo encontrado para notificacion 290: rogerp.alencia@gmail.com
+[17-Sep-2025 23:55:34 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[17-Sep-2025 23:55:34 UTC] ==== [enviar_email.php] FIN ====
+[17-Sep-2025 23:56:41 UTC] ==== [enviar_email.php] INICIO ====
+[17-Sep-2025 23:56:41 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[17-Sep-2025 23:56:41 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[17-Sep-2025 23:56:41 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[17-Sep-2025 23:56:41 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[17-Sep-2025 23:56:42 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[17-Sep-2025 23:56:42 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 00:21:38 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 00:21:38 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[18-Sep-2025 00:21:38 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 00:21:38 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[18-Sep-2025 00:21:38 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[18-Sep-2025 00:21:39 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[18-Sep-2025 00:21:39 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 12:04:02 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 12:04:02 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[18-Sep-2025 12:04:02 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 12:04:02 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[18-Sep-2025 12:04:02 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[18-Sep-2025 12:04:02 UTC] Error PHPMailer: Tipo de envío no soportado: recibo
+[18-Sep-2025 12:04:02 UTC] ErrorInfo: 
+[18-Sep-2025 12:04:02 UTC] Debug SMTP: 
+[18-Sep-2025 12:04:02 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 12:06:12 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 12:06:12 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[18-Sep-2025 12:06:12 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 12:06:12 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[18-Sep-2025 12:06:12 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[18-Sep-2025 12:06:12 UTC] Error PHPMailer: Tipo de envío no soportado: recibo
+[18-Sep-2025 12:06:12 UTC] ErrorInfo: 
+[18-Sep-2025 12:06:12 UTC] Debug SMTP: 
+[18-Sep-2025 12:06:12 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 12:07:19 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 12:07:19 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[18-Sep-2025 12:07:19 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 12:07:19 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[18-Sep-2025 12:07:19 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[18-Sep-2025 12:07:19 UTC] Error PHPMailer: Tipo de envío no soportado: recibo
+[18-Sep-2025 12:07:19 UTC] ErrorInfo: 
+[18-Sep-2025 12:07:19 UTC] Debug SMTP: 
+[18-Sep-2025 12:07:19 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 12:19:57 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 12:19:57 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[18-Sep-2025 12:19:57 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 12:19:57 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[18-Sep-2025 12:19:57 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[18-Sep-2025 12:19:57 UTC] Error PHPMailer: Tipo de envío no soportado: recibo
+[18-Sep-2025 12:19:57 UTC] ErrorInfo: 
+[18-Sep-2025 12:19:57 UTC] Debug SMTP: 
+[18-Sep-2025 12:19:57 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 12:22:57 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 12:22:57 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=270, destino=default, token=fb0e7f207d3afdc410df2af1f63eb21f
+[18-Sep-2025 12:22:57 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 12:22:57 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=270)
+[18-Sep-2025 12:22:57 UTC] Correo encontrado para notificacion 270: rogerp.alencia@gmail.com
+[18-Sep-2025 12:22:57 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[18-Sep-2025 12:22:57 UTC] ==== [enviar_email.php] FIN ====
+[18-Sep-2025 23:46:58 UTC] ==== [enviar_email.php] INICIO ====
+[18-Sep-2025 23:46:58 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[18-Sep-2025 23:46:58 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[18-Sep-2025 23:46:58 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[18-Sep-2025 23:46:58 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[18-Sep-2025 23:46:58 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[18-Sep-2025 23:46:58 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 00:24:38 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 00:24:38 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=c4cc19c355f9f32cbe9f06dff0f9eb3f
+[19-Sep-2025 00:24:38 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 00:24:38 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[19-Sep-2025 00:24:38 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[19-Sep-2025 00:24:39 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 00:24:39 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 00:25:45 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 00:25:45 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[19-Sep-2025 00:25:45 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 00:25:45 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[19-Sep-2025 00:25:45 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[19-Sep-2025 00:25:45 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 00:25:45 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 00:26:06 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 00:26:06 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[19-Sep-2025 00:26:06 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 00:26:06 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[19-Sep-2025 00:26:06 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[19-Sep-2025 00:26:06 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 00:26:06 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 00:26:11 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 00:26:11 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[19-Sep-2025 00:26:11 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 00:26:11 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[19-Sep-2025 00:26:11 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[19-Sep-2025 00:26:11 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 00:26:11 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 00:43:25 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 00:43:25 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=290, destino=default, token=b400e4651d0f8def6a7500bf90969372
+[19-Sep-2025 00:43:25 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 00:43:25 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=290)
+[19-Sep-2025 00:43:25 UTC] Correo encontrado para notificacion 290: rogerp.alencia@gmail.com
+[19-Sep-2025 00:43:25 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 00:43:25 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 01:02:57 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 01:02:57 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[19-Sep-2025 01:02:58 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column p.sexo does not exist
+LINE 2: ...     p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.sexo,
+                                                                ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:109
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(109): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 109
+[19-Sep-2025 01:03:02 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 01:03:02 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[19-Sep-2025 01:03:02 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column p.sexo does not exist
+LINE 2: ...     p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.sexo,
+                                                                ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:109
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(109): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 109
+[19-Sep-2025 01:04:06 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 01:04:06 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[19-Sep-2025 01:04:06 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[19-Sep-2025 01:04:06 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[19-Sep-2025 01:04:06 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[19-Sep-2025 01:04:07 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[19-Sep-2025 01:04:07 UTC] ==== [enviar_email.php] FIN ====
+[19-Sep-2025 01:04:28 UTC] ==== [enviar_email.php] INICIO ====
+[19-Sep-2025 01:04:28 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[19-Sep-2025 01:04:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column p.sexo does not exist
+LINE 2: ...     p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.sexo,
+                                                                ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:109
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(109): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 109
+[20-Sep-2025 00:27:25 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:27:25 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:27:25 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column p.sexo does not exist
+LINE 2: ...     p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.sexo,
+                                                                ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:109
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(109): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 109
+[20-Sep-2025 00:27:48 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:27:48 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:27:48 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column p.sexo does not exist
+LINE 2: ...     p.nombre1, p.nombre2, p.apellido1, p.apellido2, p.sexo,
+                                                                ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:109
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(109): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 109
+[20-Sep-2025 00:28:42 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:28:42 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:28:42 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 00:28:42 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[20-Sep-2025 00:28:42 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[20-Sep-2025 00:28:43 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 00:28:43 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 00:29:56 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:29:56 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:29:56 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 00:29:56 UTC] Ejecutando SQL para buscar correo: SELECT u.correo
+                  FROM notificacion_cobro nc
+                  JOIN inmueble i ON nc.id_inmueble = i.id_inmueble
+                  JOIN propietario_inmueble pi ON i.id_inmueble = pi.id_inmueble
+                  JOIN menu_login.usuario u ON pi.id_usuario = u.id_usuario
+                 WHERE nc.id_notificacion = :id LIMIT 1 (id=273)
+[20-Sep-2025 00:29:56 UTC] Correo encontrado para notificacion 273: rogerp.alencia@gmail.com
+[20-Sep-2025 00:29:56 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 00:29:56 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 00:37:07 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:37:07 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:37:07 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 00:37:07 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 00:37:07 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 00:43:26 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:43:26 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:43:26 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 00:43:26 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 00:43:26 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 00:49:15 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 00:49:15 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 00:49:15 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 00:49:15 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 00:49:15 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 19:27:13 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 19:27:13 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[20-Sep-2025 19:27:13 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 19:27:13 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 19:27:13 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 19:27:17 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 19:27:17 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=c4cc19c355f9f32cbe9f06dff0f9eb3f
+[20-Sep-2025 19:27:17 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 19:27:18 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 19:27:18 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 19:28:57 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 19:28:57 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[20-Sep-2025 19:28:57 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 19:28:58 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 19:28:58 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 20:10:53 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 20:10:53 UTC] Parametros recibidos: id_condominio=5, tipo=recibo, id=273, destino=default, token=69e49c43bd86da884d0f4dc004bf7b02
+[20-Sep-2025 20:10:53 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 20:10:53 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 20:10:53 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:09:45 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:09:45 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:09:45 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:09:46 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:09:46 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:11:18 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:11:18 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:11:18 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:11:18 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:11:18 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:13:30 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:13:30 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:13:30 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:13:30 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:13:30 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:14:24 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:14:24 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:14:24 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:14:24 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:14:24 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:19:15 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:19:15 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:19:15 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:19:15 UTC] PHP Warning:  Undefined variable $nombreCondominio in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 166
+[20-Sep-2025 22:19:15 UTC] PHP Warning:  Undefined variable $nombreCondominio in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 188
+[20-Sep-2025 22:19:15 UTC] PHP Warning:  Undefined variable $nombreCondominio in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 234
+[20-Sep-2025 22:19:15 UTC] PHP Warning:  Undefined variable $nombreCondominio in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 258
+[20-Sep-2025 22:19:15 UTC] PHP Warning:  Undefined variable $nombreCondominio in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 343
+[20-Sep-2025 22:19:16 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:19:16 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:20:23 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:20:23 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:20:23 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:20:24 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:20:24 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:22:29 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:22:29 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:22:29 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:22:30 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:22:30 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:24:37 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:24:37 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:24:37 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:24:37 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:24:37 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:26:09 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:26:09 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:26:09 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:26:09 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:26:09 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:29:26 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:29:26 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:29:26 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:29:26 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:29:26 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 22:33:07 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 22:33:07 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 22:33:07 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 22:33:07 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 22:33:07 UTC] ==== [enviar_email.php] FIN ====
+[20-Sep-2025 23:04:27 UTC] ==== [enviar_email.php] INICIO ====
+[20-Sep-2025 23:04:27 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[20-Sep-2025 23:04:27 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[20-Sep-2025 23:04:27 UTC] Correo enviado correctamente a rogerp.alencia@gmail.com
+[20-Sep-2025 23:04:27 UTC] ==== [enviar_email.php] FIN ====
+[21-Sep-2025 21:15:14 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:15:14 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:15:14 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:16:17 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:16:17 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:16:17 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:16:36 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:16:36 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:16:36 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:17:21 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:17:21 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:17:21 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:17:33 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:17:33 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:17:33 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:24:56 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:24:56 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:24:56 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:25:39 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:25:39 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:25:39 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "logo_izquierdo" does not exist
+LINE 1: SELECT nombre, logo_izquierdo, logo_derecho 
+                       ^ in /home/rhodium/public_html/condominio/sys/email/enviar_email.php:50
+Stack trace:
+#0 /home/rhodium/public_html/condominio/sys/email/enviar_email.php(50): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home/rhodium/public_html/condominio/sys/email/enviar_email.php on line 50
+[21-Sep-2025 21:48:38 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:48:38 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:48:38 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[21-Sep-2025 21:48:42 UTC] ==== [enviar_email.php] INICIO ====
+[21-Sep-2025 21:48:42 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[21-Sep-2025 21:48:42 UTC] Config encontrada: host=mail.rhodiumdev.com, port=465, user=condominios@rhodiumdev.com, seguridad=ssl
+[21-Sep-2025 21:48:42 UTC] Correo enviado correctamente a ro.gerpalencia@gmail.com
+[21-Sep-2025 21:48:42 UTC] ==== [enviar_email.php] FIN ====
+[21-Sep-2025 21:48:43 UTC] Correo enviado correctamente a ro.gerpalencia@gmail.com
+[21-Sep-2025 21:48:43 UTC] ==== [enviar_email.php] FIN ====
+[22-Sep-2025 00:14:03 UTC] ==== [enviar_email.php] INICIO ====
+[22-Sep-2025 00:14:03 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=273, destino=default, token=051ced3a3cd1d134572311a67569ee08
+[22-Sep-2025 00:14:03 UTC] ==== [enviar_email.php] FIN ====
+[22-Sep-2025 00:17:07 UTC] ==== [enviar_email.php] INICIO ====
+[22-Sep-2025 00:17:07 UTC] Parametros recibidos: id_condominio=5, tipo=notificacion, id=286, destino=default, token=1e87cb79b872ed3a970619fceca81291
+[22-Sep-2025 00:17:07 UTC] ==== [enviar_email.php] FIN ====
+[22-Sep-2025 23:06:44 UTC] ==== [enviar_email.php] INICIO ====
+[22-Sep-2025 23:06:44 UTC] ==== [enviar_email.php] FIN ====
+[22-Sep-2025 23:07:28 UTC] ==== [enviar_email.php] INICIO ====
+[22-Sep-2025 23:07:28 UTC] ==== [enviar_email.php] FIN ====
+[22-Sep-2025 23:07:35 UTC] ==== [enviar_email.php] INICIO ====
+[22-Sep-2025 23:07:35 UTC] ==== [enviar_email.php] FIN ====
+[25-Sep-2025 21:45:23 UTC] PHP Parse error:  Unclosed '{' on line 357 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 396
+[25-Sep-2025 21:45:27 UTC] PHP Parse error:  Unclosed '{' on line 357 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 396
+[25-Sep-2025 21:46:24 UTC] PHP Parse error:  Unclosed '{' on line 357 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 396
+[27-Sep-2025 00:17:58 UTC] [broadcast][fatal] SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "public.email_config" does not exist
+LINE 4:           FROM public.email_config
+                       ^ @ /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php:58
+[27-Sep-2025 00:18:45 UTC] [broadcast][fatal] SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "public.email_config" does not exist
+LINE 4:           FROM public.email_config
+                       ^ @ /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php:58
+[27-Sep-2025 00:26:37 UTC] [broadcast][fatal] Call to undefined function get_smtp_config() @ /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php:41
+[27-Sep-2025 00:27:19 UTC] [broadcast][fatal] syntax error, unexpected token "<", expecting end of file @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:415
+[27-Sep-2025 00:27:42 UTC] [broadcast][fatal] get_smtp_config(): Argument #1 ($conn) must be of type PDO, DB given, called in /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php on line 41 @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:421
+[27-Sep-2025 00:31:58 UTC] [broadcast][fatal] Cannot access protected property DB::$pdo @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:428
+[27-Sep-2025 00:33:09 UTC] [broadcast][fatal] Cannot access protected property DB::$pdo @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:428
+[27-Sep-2025 00:35:02 UTC] [broadcast][fatal] get_smtp_config: la conexión no expone método prepare(). @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:425
+[27-Sep-2025 00:36:47 UTC] [broadcast][fatal] get_smtp_config: la conexión no expone método prepare(). @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:431
+[27-Sep-2025 00:37:03 UTC] [broadcast][fatal] get_smtp_config: la conexión no expone método prepare(). @ /home/rhodium/public_html/condominio/sys/email/lib_email.php:431
+[27-Sep-2025 00:41:31 UTC] [broadcast][fatal] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^ @ /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php:49
+[27-Sep-2025 00:42:34 UTC] [broadcast][fatal] SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^ @ /home/rhodium/public_html/condominio/sys/email/enviar_email_master_broadcast.php:49
+[29-Sep-2025 00:41:49 UTC] [get_destinatarios_master] SQLSTATE[42803]: Grouping error: 7 ERROR:  column "p.nombre1" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 4:         TRIM(COALESCE(p.nombre1,'')) || ' ' || TRIM(COALESCE...
+                              ^
+[29-Sep-2025 00:41:54 UTC] [get_destinatarios_master] SQLSTATE[42803]: Grouping error: 7 ERROR:  column "p.nombre1" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 4:         TRIM(COALESCE(p.nombre1,'')) || ' ' || TRIM(COALESCE...
+                              ^
+[29-Sep-2025 00:42:05 UTC] [get_destinatarios_master] SQLSTATE[42803]: Grouping error: 7 ERROR:  column "p.nombre1" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 4:         TRIM(COALESCE(p.nombre1,'')) || ' ' || TRIM(COALESCE...
+                              ^

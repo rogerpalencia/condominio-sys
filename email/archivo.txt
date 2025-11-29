@@ -1,0 +1,10 @@
+2025-09-20T22:13:30+00:00 | logoIzq=[empty] | logoDer=[empty]
+2025-09-20T22:14:24+00:00 | logoIzq=[empty] | logoDer=[empty]
+2025-09-20T22:19:15+00:00 | logoIzq=[empty] | logoDer=[empty]
+2025-09-20T22:20:23+00:00 | logoIzq=[empty] | logoDer=[empty]
+2025-09-20T22:22:29+00:00 | logoIzq=[empty] | logoDer=[empty]
+2025-09-20T22:24:37+00:00 | logoIzq=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'> | logoDer=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'>
+2025-09-20T22:26:09+00:00 | logoIzq=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'> | logoDer=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'>
+2025-09-20T22:29:26+00:00 | logoIzq=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'> | logoDer=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'>
+2025-09-20T22:33:07+00:00 | logoIzq=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'> | logoDer=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'>
+2025-09-20T23:04:27+00:00 | logoIzq=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'> | logoDer=<img src='https://rhodiumdev.com/condominio/sys/assets/images/LOGO_PROVINCIAL.png' height='50'>
