@@ -40,10 +40,8 @@ try {
 
     $db = DB::getInstance();
 
-    // Config SMTP activa
-    $stC = $db->prepare('SELECT * FROM "email"."config" WHERE id_condominio = :c AND activo = TRUE ORDER BY updated_at DESC NULLS LAST, id_email_config DESC LIMIT 1');
-    $stC->execute([':c'=>$id_condominio]);
-    $config = $stC->fetch(PDO::FETCH_ASSOC);
+    // Config SMTP activa (tolerante a ambos esquemas)
+    $config = get_smtp_config($db, $id_condominio);
     if (!$config) {
         echo json_encode(['status'=>'error','message'=>'No hay configuración de email activa']);
         exit;

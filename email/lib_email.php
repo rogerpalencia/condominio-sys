@@ -345,16 +345,45 @@ if (!function_exists('compose_email')) {
    ENVÍO SMTP
    ============================================================ */
 if (!function_exists('send_via_smtp')) {
-    function send_via_smtp(array $config, array $email): array {
+    function send_via_smtp(array $config, array $email, bool $con_debug = false): array {
         $mail = new PHPMailer(true);
         $debugLog = '';
+        $probeInfo = null;
 
         try {
             $claveSMTP = !empty($config['contrasena_enc']) ? base64_decode($config['contrasena_enc']) : '';
 
+            // Validación temprana para evitar intentos de conexión inválidos (causan timeouts 504)
+            $host = trim((string)($config['host'] ?? ''));
+            $puerto = (int)($config['puerto'] ?? 0);
+            if ($host === '' || $puerto <= 0) {
+                throw new \Exception('Configuración SMTP incompleta (host/puerto)');
+            }
+
+            // Sonda TCP previa: falla rápido si el host/puerto no responden
+            $errno = 0;
+            $errstr = '';
+            $socket = @stream_socket_client(
+                "tcp://{$host}:{$puerto}",
+                $errno,
+                $errstr,
+                5, // segundos de timeout para la sonda
+                STREAM_CLIENT_CONNECT
+            );
+            if ($socket === false) {
+                $probeInfo = "Sonda TCP falló: tcp://{$host}:{$puerto} ({$errno}) {$errstr}";
+                throw new \Exception('Conexión inicial SMTP falló (sonda TCP): ' . $probeInfo);
+            }
+            $probeInfo = "Sonda TCP ok: tcp://{$host}:{$puerto}";
+            fclose($socket);
+
+            // Tiempo máximo de conexión y envío para evitar timeouts a nivel de proxy (504)
+            $mail->Timeout        = 20;  // segundos para operaciones SMTP
+            $mail->SMTPKeepAlive  = false; // no reutilizar conexiones
+
             $mail->isSMTP();
-            $mail->Host       = $config['host'];
-            $mail->Port       = (int)$config['puerto'];
+            $mail->Host       = $host;
+            $mail->Port       = $puerto;
             $mail->SMTPAuth   = true;
             $mail->Username   = $config['usuario'];
             $mail->Password   = $claveSMTP;
@@ -364,6 +393,22 @@ if (!function_exists('send_via_smtp')) {
 
             $mail->CharSet  = 'UTF-8';
             $mail->Encoding = 'base64';
+
+            // Evita fallos por certificados autofirmados típicos de hosting compartido
+            $mail->SMTPOptions = [
+                'ssl' => [
+                    'verify_peer'       => false,
+                    'verify_peer_name'  => false,
+                    'allow_self_signed' => true,
+                ],
+            ];
+
+            if ($con_debug) {
+                $mail->SMTPDebug   = 2;
+                $mail->Debugoutput = function ($str, $level) use (&$debugLog) {
+                    $debugLog .= "[$level] $str\n";
+                };
+            }
 
             $mail->setFrom($config['from_email'], $config['from_name'] ?? $config['from_email']);
 
@@ -393,20 +438,29 @@ if (!function_exists('send_via_smtp')) {
             }
 
             $mail->send();
-            return ['ok'=>true, 'message_id'=>$mail->getLastMessageID(), 'debug'=>$debugLog];
+            return [
+                'ok'=>true,
+                'message_id'=>$mail->getLastMessageID(),
+                'debug'=>$debugLog,
+                'probe'=>$probeInfo,
+            ];
         } catch (PHPMailerException $e) {
+            error_log('[lib_email][send_via_smtp] PHPMailerException: ' . $e->getMessage());
             return [
                 'ok'=>false,
                 'error'=>"Mailer Error: " . ($mail->ErrorInfo ?? 'desconocido'),
                 'exception'=>$e->getMessage(),
-                'debug'=>$debugLog
+                'debug'=>$debugLog,
+                'probe'=>$probeInfo,
             ];
         } catch (\Throwable $e) {
+            error_log('[lib_email][send_via_smtp] Throwable: ' . $e->getMessage());
             return [
                 'ok'=>false,
                 'error'=>"Mailer Error: " . ($mail->ErrorInfo ?? 'desconocido'),
                 'exception'=>$e->getMessage(),
-                'debug'=>$debugLog
+                'debug'=>$debugLog,
+                'probe'=>$probeInfo,
             ];
         }
     }
@@ -415,20 +469,16 @@ if (!function_exists('send_via_smtp')) {
 
 // Sustituye tu get_smtp_config existente por esta versión “tolerante”
 // === Helper centralizado para obtener la configuración SMTP activa ===
-// Acepta PDO, tu wrapper DB con ->prepare(), o NULL. Si no sirve, obtiene DB::getInstance() adentro.
+// Acepta PDO, tu wrapper DB con ->prepare() o __call(), o NULL. Si no sirve, obtiene DB::getInstance() adentro.
 if (!function_exists('get_smtp_config')) {
   function get_smtp_config($conn_like, int $id_condominio): array {
     // Normalizar conexión: si no es usable, intentar DB::getInstance()
-    if (!is_object($conn_like) || !method_exists($conn_like, 'prepare')) {
-      // Intentar obtener la conexión desde el propio lib_email
-      if (class_exists('DB') && method_exists('DB', 'getInstance')) {
-        $conn_like = DB::getInstance();
-      }
-    }
+    $conn_like = normalizar_conexion($conn_like);
 
-    // Si sigue sin tener prepare(), es un error real
-    if (!is_object($conn_like) || !method_exists($conn_like, 'prepare')) {
-      throw new Exception('get_smtp_config: la conexión no expone método prepare().');
+    if (!$conn_like) {
+      // No hay forma segura de preparar consultas; devolver vacío en vez de fatal error
+      error_log('[lib_email][get_smtp_config] No se pudo obtener una conexión con prepare().');
+      return [];
     }
 
     // 1) "email"."config" (tu esquema principal)
@@ -446,6 +496,24 @@ if (!function_exists('get_smtp_config')) {
       if ($row && !empty($row['host'])) return $row;
     } catch (Throwable $e) {
       error_log('[lib_email][get_smtp_config] email.config: '.$e->getMessage());
+      // Intento de compatibilidad si falta la columna list_unsubscribe
+      if (stripos($e->getMessage(), 'list_unsubscribe') !== false) {
+        try {
+          $st = $conn_like->prepare('
+            SELECT host, puerto, usuario, contrasena_enc, seguridad,
+                   from_email, from_name, reply_to_email, reply_to_name
+              FROM "email"."config"
+             WHERE id_condominio = :c AND activo = TRUE
+             ORDER BY updated_at DESC NULLS LAST, id_email_config DESC
+             LIMIT 1
+          ');
+          $st->execute([':c'=>$id_condominio]);
+          $row = $st->fetch(PDO::FETCH_ASSOC);
+          if ($row && !empty($row['host'])) return $row;
+        } catch (Throwable $e2) {
+          error_log('[lib_email][get_smtp_config] email.config sin list_unsubscribe: '.$e2->getMessage());
+        }
+      }
     }
 
     // 2) public.email_config (fallback, por si tu instalación lo usa)
@@ -462,8 +530,50 @@ if (!function_exists('get_smtp_config')) {
       if ($row && !empty($row['host'])) return $row;
     } catch (Throwable $e) {
       error_log('[lib_email][get_smtp_config] public.email_config: '.$e->getMessage());
+      if (stripos($e->getMessage(), 'list_unsubscribe') !== false) {
+        try {
+          $st = $conn_like->prepare('
+            SELECT host, puerto, usuario, contrasena_enc, seguridad,
+                   from_email, from_name, reply_to_email, reply_to_name
+              FROM public.email_config
+             WHERE id_condominio = :c AND activo = TRUE
+             LIMIT 1
+          ');
+          $st->execute([':c'=>$id_condominio]);
+          $row = $st->fetch(PDO::FETCH_ASSOC);
+          if ($row && !empty($row['host'])) return $row;
+        } catch (Throwable $e2) {
+          error_log('[lib_email][get_smtp_config] public.email_config sin list_unsubscribe: '.$e2->getMessage());
+        }
+      }
     }
 
     return [];
+  }
+}
+
+// Normaliza la conexión recibida para garantizar que soporte ->prepare(), contemplando wrappers con __call
+if (!function_exists('normalizar_conexion')) {
+  function normalizar_conexion($conn_like) {
+    $esUsable = function ($c) {
+      return is_object($c) && (
+        method_exists($c, 'prepare') ||
+        is_callable([$c, 'prepare']) ||
+        method_exists($c, '__call')
+      );
+    };
+
+    if ($esUsable($conn_like)) {
+      return $conn_like;
+    }
+
+    if (class_exists('DB') && method_exists('DB', 'getInstance')) {
+      $conn = DB::getInstance();
+      if ($esUsable($conn)) {
+        return $conn;
+      }
+    }
+
+    return null;
   }
 }
