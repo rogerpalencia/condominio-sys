@@ -771,3 +771,46 @@ LINE 4:         TRIM(COALESCE(p.nombre1,'')) || ' ' || TRIM(COALESCE...
 [29-Sep-2025 00:42:05 UTC] [get_destinatarios_master] SQLSTATE[42803]: Grouping error: 7 ERROR:  column "p.nombre1" must appear in the GROUP BY clause or be used in an aggregate function
 LINE 4:         TRIM(COALESCE(p.nombre1,'')) || ' ' || TRIM(COALESCE...
                               ^
+[02-Dec-2025 00:28:07 UTC] PHP Parse error:  Unclosed '{' on line 428 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 487
+[02-Dec-2025 00:28:16 UTC] PHP Parse error:  Unclosed '{' on line 428 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 487
+[02-Dec-2025 00:28:36 UTC] PHP Parse error:  Unclosed '{' on line 428 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 487
+[02-Dec-2025 00:29:16 UTC] PHP Parse error:  Unclosed '{' on line 428 in /home/rhodium/public_html/condominio/sys/email/lib_email.php on line 487
+[02-Dec-2025 00:40:49 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:43:26 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:43:44 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:48:40 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:49:01 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:51:03 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 00:51:23 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[02-Dec-2025 00:52:56 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[02-Dec-2025 00:53:17 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[02-Dec-2025 14:53:14 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 14:53:34 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[02-Dec-2025 15:33:27 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[02-Dec-2025 15:33:47 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+[05-Dec-2025 12:23:37 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[05-Dec-2025 12:23:39 UTC] [lib_email][send_via_smtp] PHPMailerException: SMTP Error: Could not authenticate.
+[05-Dec-2025 12:47:09 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
+[05-Dec-2025 12:48:37 UTC] [lib_email][get_smtp_config] email.config: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "list_unsubscribe" does not exist
+LINE 3: ..._email, from_name, reply_to_email, reply_to_name, list_unsub...
+                                                             ^
