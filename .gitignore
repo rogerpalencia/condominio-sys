@@ -11,7 +11,8 @@ config-local.php
 *config*.local.php
 core/db.php.ini
 core/config.php
-
+*.sql
+sql/
 # Archivos de logs
 *.log
 logs/
@@ -60,4 +61,6 @@ Thumbs.db
 # Cualquier archivo que NO quieres versionar
 sql.txt
 consulta.txt
+
+
 
