@@ -105,6 +105,24 @@ function selectPlanCuentas($conn, $id_condo, $tipo = null) {
   }
   return $html;
 }
+
+function selectCuentasFinancieras($conn, $id_condo) {
+  $q = "SELECT id_cuenta, nombre, numero, tipo_cuenta, fondo FROM cuenta
+        WHERE id_condominio = :c AND estatus = TRUE
+        ORDER BY nombre";
+  $st = $conn->prepare($q);
+  $st->execute([':c'=>$id_condo]);
+
+  $html = '<option value="">Seleccione</option>';
+  while ($r = $st->fetch(PDO::FETCH_ASSOC)) {
+    $labelTipo = $r['tipo_cuenta'] ? ' - '.strtoupper($r['tipo_cuenta']) : '';
+    $labelFondo = $r['fondo'] ? ' [Fondo]' : '';
+    $html .= '<option value="'.(int)$r['id_cuenta'].'">'
+          .  htmlspecialchars(($r['nombre'] ?? 'Cuenta').' '.$labelTipo.' '.$labelFondo.' ('.($r['numero'] ?? '').')')
+          .  '</option>';
+  }
+  return $html;
+}
 ?>
 <!doctype html>
 <html lang="es">
@@ -287,6 +305,9 @@ function selectPlanCuentas($conn, $id_condo, $tipo = null) {
             <tr>
               <th>Tipo</th>
               <th>Cuenta</th>
+              <th>Cuenta financiera</th>
+              <th class="col-pago">Fecha pago</th>
+              <th class="col-pago">Referencia/medio</th>
               <th>Descripción</th>
               <th>Monto</th>
               <th>Acciones</th>
@@ -462,6 +483,12 @@ $(function(){
     ],
     order:[[1,'DESC'],[2,'DESC']],
     language:{ url:'Spanish.json' }
+  });
+
+  tabla.on('xhr.dt', function(e, settings, json){
+    if (json && json.error) {
+      Swal.fire('Error', json.error, 'error');
+    }
   });
 
   /* ==========================================================
@@ -663,6 +690,14 @@ $(function(){
     }
   });
 
+  // Asegura que siempre haya al menos una fila editable al abrir el modal
+  $('#modalCargarCobroMaster').on('shown.bs.modal', function(){
+    if ($('#tablaDetalleMaster tbody tr').length === 0) {
+      addFilaMaster();
+      calcTotalMaster();
+    }
+  });
+
   // Limpiar backdrop si quedara activo
   $('#modalCargarCobroMaster').on('hidden.bs.modal', function(){
     $('body').removeClass('modal-open');
@@ -692,6 +727,8 @@ $(function(){
 
         if (!wrap || wrap.status!=='ok' || !wrap.data) {
           Swal.fire('Error', (wrap&&wrap.message)||'No se pudo cargar la notificación', 'error');
+          addFilaMaster();
+          calcTotalMaster();
           return;
         }
 
@@ -720,6 +757,15 @@ $(function(){
             const cuentaId = (det.id_plan_cuenta ?? det.cuenta ?? '');
             $tr.find('select[name="tipo_movimiento[]"]').val(tipoFila);
             loadCuentasForRow($tr[0], tipoFila, String(cuentaId));
+            if (det.id_cuenta) {
+              $tr.find('select[name="id_cuenta_financiera[]"]').val(String(det.id_cuenta));
+            }
+            if (det.fecha_pago) {
+              $tr.find('input[name="fecha_pago[]"]').val(det.fecha_pago);
+            }
+            if (det.referencia_pago) {
+              $tr.find('input[name="referencia_pago[]"]').val(det.referencia_pago);
+            }
             $tr.find('input[name="descripcion[]"]').val(det.descripcion ?? '');
             $tr.find('input[name="monto[]"]').val( (det.monto!==undefined && det.monto!==null) ? det.monto : '' );
           });
@@ -804,7 +850,22 @@ $(function(){
     const tipo = parseInt($('#id_tipo').val()||'1',10);
     const $btn = $('#btnClonarPresupuesto');
     $btn.show().text( (tipo===1) ? 'Clonar mes anterior' : 'Copiar ítems del Presupuesto' );
+    toggleCamposPago(tipo);
   };
+
+  function toggleCamposPago(tipo){
+    const mostrarPago = (parseInt(tipo,10) === 2);
+    const displayVal  = mostrarPago ? '' : 'none';
+
+    document.querySelectorAll('#tablaDetalleMaster .col-pago').forEach(td=>{
+      td.style.display = displayVal;
+      const input = td.querySelector('input');
+      if (input) {
+        input.required = mostrarPago;
+        if (!mostrarPago) { input.value = ''; }
+      }
+    });
+  }
 
   window.accionClonar = function(){
     const tipo = parseInt($('#id_tipo').val()||'1',10);
@@ -832,6 +893,19 @@ $(function(){
             <?= selectPlanCuentas($conn, $id_condominio, 'ingreso') ?>
           </select>
         </td>
+        <td>
+          <select name="id_cuenta_financiera[]" class="form-select" required>
+            <?= selectCuentasFinancieras($conn, $id_condominio) ?>
+          </select>
+        </td>
+        <td class="col-pago">
+          <input type="date" name="fecha_pago[]" class="form-control" placeholder="AAAA-MM-DD">
+        </td>
+        <td class="col-pago">
+          <input type="text" name="referencia_pago[]" class="form-control"
+                 maxlength="150" oninput="this.value=this.value.toUpperCase();"
+                 placeholder="REF/NOTA">
+        </td>
         <td><input type="text" name="descripcion[]" class="form-control text-uppercase"
                    required oninput="this.value=this.value.toUpperCase();"></td>
         <td><input type="number" name="monto[]" class="form-control"
@@ -845,10 +919,15 @@ $(function(){
     if (returnRow){
       const $tr = $(trHtml);
       $('#tablaDetalleMaster tbody').append($tr);
+      loadCuentasForRow($tr[0], 'ingreso', null);
+      toggleCamposPago($('#id_tipo').val());
       return $tr;
     } else {
       $('#tablaDetalleMaster tbody').append(trHtml);
+      const $row = $('#tablaDetalleMaster tbody tr').last();
+      loadCuentasForRow($row[0], 'ingreso', null);
       calcTotalMaster();
+      toggleCamposPago($('#id_tipo').val());
       return null;
     }
   };
@@ -868,6 +947,19 @@ $(function(){
           <?= selectPlanCuentas($conn, $id_condominio, 'ingreso') ?>
         </select>
       </td>
+      <td>
+        <select name="id_cuenta_financiera[]" class="form-select" required>
+          <?= selectCuentasFinancieras($conn, $id_condominio) ?>
+        </select>
+      </td>
+      <td class="col-pago">
+        <input type="date" name="fecha_pago[]" class="form-control" placeholder="AAAA-MM-DD">
+      </td>
+      <td class="col-pago">
+        <input type="text" name="referencia_pago[]" class="form-control"
+               maxlength="150" oninput="this.value=this.value.toUpperCase();"
+               placeholder="REF/NOTA">
+      </td>
       <td><input type="text" name="descripcion[]" class="form-control text-uppercase"
                  required oninput="this.value=this.value.toUpperCase();"></td>
       <td><input type="number" name="monto[]" class="form-control"
@@ -881,6 +973,7 @@ $(function(){
     const filaActual = btn.closest('tr');
     filaActual.parentNode.insertBefore(nueva, filaActual.nextSibling);
     calcTotalMaster();
+    toggleCamposPago($('#id_tipo').val());
   };
 
   window.clonarRelacionPeriodo = function(){
@@ -986,6 +1079,9 @@ $(function(){
 
   $('#mes').on('change', updateDescripcion);
   $('#id_tipo').on('change', function(){ updateDescripcion(); toggleBtnClonar(); });
+
+  // Inicializar visibilidad de campos de pago según tipo actual
+  toggleCamposPago($('#id_tipo').val());
 
   $('#formCargarCobroMaster').on('submit', function(e){
     e.preventDefault();

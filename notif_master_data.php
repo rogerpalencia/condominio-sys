@@ -31,25 +31,25 @@ try {
     $search = trim($_POST['search']['value'] ?? '');
 
     // === Consulta base (SIN ORDER/LIMIT) ===
-    $sql_core = "SELECT n.id_notificacion_master, n.anio, n.mes, n.fecha_emision, 
-                        n.descripcion, m.codigo AS moneda, n.monto_total, n.estado, 
-                        CASE n.id_tipo 
-                            WHEN 1 THEN 'Presupuesto' 
-                            WHEN 2 THEN 'Relación Ingr./Egr.' 
-                            ELSE '' 
+    $sql_core = "SELECT n.id_notificacion_master, n.anio, n.mes, n.fecha_emision,
+                        n.descripcion, COALESCE(m.codigo, '') AS moneda, n.monto_total, n.estado,
+                        CASE n.id_tipo
+                            WHEN 1 THEN 'Presupuesto'
+                            WHEN 2 THEN 'Relación Ingr./Egr.'
+                            ELSE ''
                         END AS tipo_txt,
-                        CASE 
+                        CASE
                             WHEN COUNT(DISTINCT d.tipo_movimiento) = 1 AND MIN(d.tipo_movimiento) = 'ingreso' THEN 'ingresos'
                             WHEN COUNT(DISTINCT d.tipo_movimiento) = 1 AND MIN(d.tipo_movimiento) = 'egreso' THEN 'egresos'
                             WHEN COUNT(DISTINCT d.tipo_movimiento) > 1 THEN 'mixto'
                             ELSE 'sin movimientos'
                         END AS movimientos
                  FROM notificacion_cobro_master n
-                 JOIN moneda m ON m.id_moneda = n.id_moneda
-                 LEFT JOIN notificacion_cobro_detalle_master d 
+                 LEFT JOIN moneda m ON m.id_moneda = n.id_moneda
+                 LEFT JOIN notificacion_cobro_detalle_master d
                     ON d.id_notificacion_master = n.id_notificacion_master
                  WHERE n.id_condominio = :id_condominio
-                 GROUP BY n.id_notificacion_master, n.anio, n.mes, n.fecha_emision, 
+                 GROUP BY n.id_notificacion_master, n.anio, n.mes, n.fecha_emision,
                           n.descripcion, m.codigo, n.monto_total, n.estado, n.id_tipo";
 
     $params = [':id_condominio' => $id_condominio];
