@@ -19,8 +19,13 @@ try {
     $descripcion    = trim($_POST['descripcion']     ?? '');
     $estado         = $_POST['estado']               ?? 'pendiente';
     $id_plan_cuenta = (int)($_POST['id_plan_cuenta'] ?? 0);
+    $mes_contable   = trim($_POST['mes_contable']    ?? '');
+    $anio_contable  = trim($_POST['anio_contable']   ?? '');
 
-    if ($id_condominio<=0 || !$fecha || !$tipo || !$id_plan_cuenta)
+    if ($mes_contable === '') $mes_contable = date('m');
+    if ($anio_contable === '') $anio_contable = date('Y');
+
+    if ($id_condominio<=0 || !$fecha || !$tipo || !$id_plan_cuenta || !$mes_contable || !$anio_contable)
         throw new Exception('Datos incompletos.');
 
     /* === 2. Reconstruir detalles === */
@@ -68,12 +73,14 @@ try {
         $sql = "UPDATE movimiento_general SET
                    fecha_movimiento=:fecha, tipo_movimiento=:tipo,
                    descripcion=:desc, monto_total=:monto, estado=:estado,
-                   id_cuenta=:cu, id_moneda=:mo
+                   id_cuenta=:cu, id_moneda=:mo,
+                   mes_contable=:mes, anio_contable=:anio
                 WHERE id_movimiento=:id AND id_condominio=:cid";
         $conn->prepare($sql)->execute([
             ':fecha'=>$fecha, ':tipo'=>$tipo, ':desc'=>$descripcion,
             ':monto'=>$monto_total, ':estado'=>$estado,
             ':cu'=>$id_cuenta_enc, ':mo'=>$id_moneda_enc,
+            ':mes'=>$mes_contable, ':anio'=>$anio_contable,
             ':id'=>$id_movimiento, ':cid'=>$id_condominio
         ]);
 
@@ -82,15 +89,16 @@ try {
         $sql = "INSERT INTO movimiento_general
                 (id_condominio,fecha_movimiento,tipo_movimiento,
                  descripcion,monto_total,estado,fecha_creacion,
-                 id_cuenta,id_moneda)
+                 id_cuenta,id_moneda,mes_contable,anio_contable)
                 VALUES (:cid,:fecha,:tipo,:desc,:monto,:estado,
-                        CURRENT_TIMESTAMP,:cu,:mo)
+                        CURRENT_TIMESTAMP,:cu,:mo,:mes,:anio)
                 RETURNING id_movimiento";
         $stmt = $conn->prepare($sql);
         $stmt->execute([
             ':cid'=>$id_condominio, ':fecha'=>$fecha, ':tipo'=>$tipo,
             ':desc'=>$descripcion, ':monto'=>$monto_total, ':estado'=>$estado,
-            ':cu'=>$id_cuenta_enc, ':mo'=>$id_moneda_enc
+            ':cu'=>$id_cuenta_enc, ':mo'=>$id_moneda_enc,
+            ':mes'=>$mes_contable, ':anio'=>$anio_contable
         ]);
         $id_movimiento = (int)$stmt->fetchColumn();   // ← ahora sí
     }

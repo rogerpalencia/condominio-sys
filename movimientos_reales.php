@@ -11,7 +11,8 @@ try {
     $func = new Funciones();
     $conn = DB::getInstance();
     if (!$conn) throw new Exception('No se pudo conectar a la base de datos');
-    $id_usuario = 2;
+    $id_usuario = (int)($_SESSION['userid'] ?? 0);
+    if ($id_usuario <= 0) throw new Exception('Usuario no autenticado');
 
     $sql = "SELECT c.id_condominio, c.nombre
             FROM administradores a
@@ -48,7 +49,7 @@ try {
             <div class="container-fluid">
                 <div class="row align-items-center mb-3">
                     <div class="col-6">
-                        <h1 class="display-6 mb-0">Movimientos Reales</h1>
+                        <h1 class="display-6 mb-0">Cargar ingresos/egresos</h1>
                         <p class="text-muted mb-0"><?= htmlspecialchars($nombre_condo) ?></p>
                     </div>
                     <div class="col-6 text-end">

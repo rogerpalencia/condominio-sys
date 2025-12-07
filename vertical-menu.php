@@ -132,6 +132,13 @@ $userid= $_SESSION['userid'] ;
                 </li>
 
                 <li>
+                    <a href="movimientos_reales.php">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span data-key="t-dashboard">Cargar ingresos/egresos</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fas fa-money-bill-wave"></i>
                         <span data-key="t-pages">Pagos</span>

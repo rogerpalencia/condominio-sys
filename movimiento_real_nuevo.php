@@ -28,8 +28,8 @@ try {
             'tipo_movimiento' => 'ingreso',
             'descripcion' => '',
             'estado' => 'pendiente',
-            'mes_contable' => '',
-            'anio_contable' => '',
+            'mes_contable' => date('m'),
+            'anio_contable' => date('Y'),
             'monto_base_total' => 0,
             'cuenta' => '',
             'moneda' => '',
@@ -193,7 +193,7 @@ try {
             </div>
             <div class="col-md-4">
                 <label class="form-label">Mes Contable</label>
-                <select name="mes_contable" class="form-control">
+                <select name="mes_contable" class="form-control" required>
                     <option value="">-- Seleccione --</option>
                     <?php for ($i = 1; $i <= 12; $i++): ?>
                         <option value="<?= sprintf('%02d', $i) ?>" <?= isset($movimiento['mes_contable']) && $movimiento['mes_contable'] === sprintf('%02d', $i) ? 'selected' : '' ?>>
@@ -204,7 +204,7 @@ try {
             </div>
             <div class="col-md-4">
                 <label class="form-label">Año Contable</label>
-                <select name="anio_contable" class="form-control">
+                <select name="anio_contable" class="form-control" required>
                     <option value="">-- Seleccione --</option>
                     <?php for ($i = 2020; $i <= 2030; $i++): ?>
                         <option value="<?= $i ?>" <?= isset($movimiento['anio_contable']) && $movimiento['anio_contable'] == $i ? 'selected' : '' ?>>
