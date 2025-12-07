@@ -961,6 +961,7 @@ CREATE TABLE "public"."notificacion_cobro_detalle_master" (
   "id_detalle" int8 NOT NULL DEFAULT nextval('notificacion_cobro_detalle_master_id_detalle_seq'::regclass),
   "id_notificacion_master" int4 NOT NULL,
   "id_plan_cuenta" int4 NOT NULL,
+  "id_cuenta" int4,
   "descripcion" text COLLATE "pg_catalog"."default",
   "monto" numeric(15,2) NOT NULL,
   "id_condominio" int4,
