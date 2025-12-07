@@ -8,6 +8,11 @@ try {
         throw new Exception('No se pudo establecer la conexión a la base de datos');
     }
 
+    // Asegura columnas de cuenta financiera y trazabilidad de pago en el detalle (compatibilidad hacia atrás)
+    $conn->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS id_cuenta INT");
+    $conn->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS fecha_pago DATE");
+    $conn->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS referencia_pago VARCHAR(150)");
+
     $conn->beginTransaction();
 
     // Validar y sanitizar datos de entrada
@@ -69,18 +74,26 @@ try {
 
     // Procesar detalles
     $cuentas = $_POST['id_plan_cuenta'] ?? [];
+    $cuentas_fin = $_POST['id_cuenta_financiera'] ?? [];
     $descs = $_POST['descripcion'] ?? [];
     $montos = $_POST['monto'] ?? [];
-    if (count($cuentas) !== count($descs) || count($cuentas) !== count($montos)) {
+    $fechasPago = $_POST['fecha_pago'] ?? [];
+    $refsPago = $_POST['referencia_pago'] ?? [];
+    if (count($cuentas) !== count($descs) || count($cuentas) !== count($montos) || count($cuentas) !== count($cuentas_fin)) {
         throw new Exception('El número de cuentas, descripciones y montos no coincide');
+    }
+    if ($id_tipo === 2 && (count($cuentas) !== count($fechasPago) || count($cuentas) !== count($refsPago))) {
+        throw new Exception('Debe completar fecha y referencia de pago en todas las filas.');
     }
 
     $total = 0;
     foreach ($cuentas as $i => $id_plan) {
         $monto = floatval(str_replace(',', '.', $montos[$i]));
-    //    if ($monto <= 0) {
-    //        throw new Exception('Los montos deben ser mayores a 0');
-    //    }
+        $fechaPago = $fechasPago[$i] ?? null;
+        $refPago   = isset($refsPago[$i]) ? trim($refsPago[$i]) : null;
+        if ($id_tipo === 2 && (empty($fechaPago) || empty($refPago))) {
+            throw new Exception('Debe indicar fecha y referencia de pago para cada concepto de Relación.');
+        }
         // Obtener el tipo de cuenta
         $sql = "SELECT tipo FROM plan_cuenta WHERE id_plan = :id AND id_condominio = :c";
         $stmt = $conn->prepare($sql);
@@ -89,6 +102,14 @@ try {
         if (!$tipo) {
             throw new Exception("Cuenta no encontrada para id_plan_cuenta: $id_plan");
         }
+        $id_cuenta_fin = (int)$cuentas_fin[$i];
+        $sqlCuenta = "SELECT 1 FROM cuenta WHERE id_cuenta = :cu AND id_condominio = :c AND estatus = TRUE";
+        $stmtCuenta = $conn->prepare($sqlCuenta);
+        $stmtCuenta->execute([':cu' => $id_cuenta_fin, ':c' => $id_condo]);
+        if (!$stmtCuenta->fetchColumn()) {
+            throw new Exception("Cuenta financiera no encontrada o inactiva para id_cuenta: {$id_cuenta_fin}");
+        }
+
         $total += $monto;
     }
 
@@ -121,10 +142,10 @@ try {
 
     // Insertar detalles
     $sqlDet = "INSERT INTO notificacion_cobro_detalle_master (
-        id_notificacion_master, id_plan_cuenta, descripcion, monto,
-        id_condominio, anio, mes, estado, id_moneda, tipo_movimiento
+        id_notificacion_master, id_plan_cuenta, id_cuenta, descripcion, monto,
+        id_condominio, anio, mes, estado, id_moneda, tipo_movimiento, fecha_pago, referencia_pago
     ) VALUES (
-        :master, :plan, :desc, :monto, :cond, :anio, :mes, 'pendiente', :mon, :tipo
+        :master, :plan, :cuenta_fin, :desc, :monto, :cond, :anio, :mes, 'pendiente', :mon, :tipo, :fpago, :ref
     )";
     $stmt = $conn->prepare($sqlDet);
     for ($i = 0; $i < count($cuentas); $i++) {
@@ -139,13 +160,16 @@ try {
         $paramsDet = [
             ':master' => $id_master,
             ':plan' => (int)$cuentas[$i],
+            ':cuenta_fin' => (int)$cuentas_fin[$i],
             ':desc' => strtoupper(trim($descs[$i])),
             ':monto' => floatval(str_replace(',', '.', $montos[$i])),
             ':cond' => $id_condo,
             ':anio' => $anio,
             ':mes' => $mes,
             ':mon' => $id_mon,
-            ':tipo' => $tipo
+            ':tipo' => $tipo,
+            ':fpago'=> !empty($fechasPago[$i]) ? date('Y-m-d', strtotime($fechasPago[$i])) : null,
+            ':ref'  => !empty($refsPago[$i]) ? strtoupper(trim($refsPago[$i])) : null
         ];
         $stmt->execute($paramsDet);
     }

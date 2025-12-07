@@ -9,6 +9,9 @@ try {
         throw new Exception('No se pudo establecer la conexión a la base de datos');
     }
 
+    // Compatibilidad: asegura columna id_cuenta en el detalle
+    $conn->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS id_cuenta INT");
+
     $id_notificacion = (int)$_POST['id_notificacion_master'] ?? 0;
     if ($id_notificacion <= 0) {
         throw new Exception('ID de notificación inválido');
@@ -28,7 +31,8 @@ try {
     }
 
     // Obtener detalles con el tipo de movimiento
-    $sql = "SELECT d.id_plan_cuenta, d.descripcion, d.monto, d.tipo_movimiento
+    $sql = "SELECT d.id_plan_cuenta, d.id_cuenta, d.descripcion, d.monto, d.tipo_movimiento,
+                   d.fecha_pago, d.referencia_pago
             FROM notificacion_cobro_detalle_master d
             WHERE d.id_notificacion_master = :id";
     $stmt = $conn->prepare($sql);

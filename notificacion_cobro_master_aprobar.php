@@ -28,6 +28,112 @@ function marcar_master_estado($db, int $id_master, string $estado): bool {
     }
 }
 
+function generar_movimientos_contables(PDO $db, array $master, array $detalles, int $id_condominio): array {
+    $fechaMaestra = $master['fecha_emision'] ?? date('Y-m-d');
+    $mes   = (int)($master['mes'] ?? 0);
+    $anio  = (int)($master['anio'] ?? 0);
+    $id_moneda = (int)($master['id_moneda'] ?? 0);
+    $descCab = strtoupper(trim($master['descripcion'] ?? 'NOTIFICACIÓN MASTER'));
+
+    $sqlMG = $db->prepare("INSERT INTO movimiento_general
+        (id_condominio, id_cuenta, descripcion, monto_total, id_moneda, tipo_movimiento,
+         estado, fecha_movimiento, fecha_creacion, mes_contable, anio_contable)
+        VALUES
+        (:condo, :cuenta, :desc, :monto, :moneda, :tipo, 'aprobado', :fecha, CURRENT_TIMESTAMP, :mes, :anio)
+        RETURNING id_movimiento");
+
+    $sqlIng = $db->prepare("INSERT INTO movimiento_detalle_ingreso
+        (id_movimiento_general, id_cuenta, id_plan_cuenta, monto, tasa, monto_base, referencia)
+        VALUES (:id, :cuenta, :plan, :monto, 1, :monto, :ref)");
+
+    $sqlEgr = $db->prepare("INSERT INTO movimiento_detalle_egreso
+        (id_movimiento_general, id_cuenta, id_plan_cuenta, descripcion, monto_aplicado, tasa, monto_base, estado, fecha_aplicacion)
+        VALUES (:id, :cuenta, :plan, :desc, :monto, 1, :monto, 'aprobado', :fecha)");
+
+    $sqlSaldoMas  = $db->prepare("UPDATE cuenta SET saldo_actual = COALESCE(saldo_actual,0) + :monto WHERE id_cuenta = :cuenta");
+    $sqlSaldoMenos= $db->prepare("UPDATE cuenta SET saldo_actual = COALESCE(saldo_actual,0) - :monto WHERE id_cuenta = :cuenta");
+    $sqlCuentaVal = $db->prepare("SELECT 1 FROM cuenta WHERE id_cuenta = :cuenta AND id_condominio = :condo AND estatus = TRUE");
+
+    $creados = 0;
+
+    foreach ($detalles as $det) {
+        $tipo = ($det['tipo_movimiento'] === 'egreso') ? 'egreso' : 'ingreso';
+        $id_cuenta = (int)($det['id_cuenta'] ?? 0);
+        if ($id_cuenta <= 0) {
+            throw new Exception('Falta la cuenta financiera en un detalle de la notificación.');
+        }
+
+        $sqlCuentaVal->execute([':cuenta'=>$id_cuenta, ':condo'=>$id_condominio]);
+        if (!$sqlCuentaVal->fetchColumn()) {
+            throw new Exception("La cuenta financiera {$id_cuenta} no pertenece al condominio o está inactiva.");
+        }
+
+        $monto = (float)$det['monto'];
+        $fechaDetalle = !empty($det['fecha_pago']) ? $det['fecha_pago'] : $fechaMaestra;
+        $referencia   = !empty($det['referencia_pago']) ? strtoupper(trim($det['referencia_pago']))
+                                                         : 'MASTER '.$master['id_notificacion_master'].' DET '.$det['id_detalle'];
+        $descDet = strtoupper(trim($det['descripcion'] ?? $descCab));
+        if ($monto <= 0) continue;
+
+        $sqlMG->execute([
+            ':condo' => $id_condominio,
+            ':cuenta'=> $id_cuenta,
+            ':desc'  => "MASTER #{$master['id_notificacion_master']} - {$descDet}",
+            ':monto' => $monto,
+            ':moneda'=> $id_moneda,
+            ':tipo'  => $tipo,
+            ':fecha' => $fechaDetalle,
+            ':mes'   => $mes,
+            ':anio'  => $anio,
+        ]);
+        $id_mov = (int)$sqlMG->fetchColumn();
+
+        if ($tipo === 'ingreso') {
+            $sqlIng->execute([
+                ':id' => $id_mov,
+                ':cuenta' => $id_cuenta,
+                ':plan' => (int)$det['id_plan_cuenta'],
+                ':monto' => $monto,
+                ':ref' => $referencia
+            ]);
+            $sqlSaldoMas->execute([':monto'=>$monto, ':cuenta'=>$id_cuenta]);
+        } else {
+            $sqlEgr->execute([
+                ':id' => $id_mov,
+                ':cuenta' => $id_cuenta,
+                ':plan' => (int)$det['id_plan_cuenta'],
+                ':desc' => $descDet.' / '.$referencia,
+                ':monto'=> $monto,
+                ':fecha'=> $fechaDetalle,
+            ]);
+            $sqlSaldoMenos->execute([':monto'=>$monto, ':cuenta'=>$id_cuenta]);
+        }
+
+        $creados++;
+    }
+
+    return ['movimientos_creados' => $creados];
+}
+
+function limpiar_detalles_huerfanos(PDO $db, int $id_condominio): void {
+    try {
+        // El generador de notificaciones debería dejar consistentes cabeceras y detalles.
+        // Si por alguna razón quedan detalles sin cabecera (p.ej. abortos previos),
+        // se eliminan antes del commit para no romper la FK deferrable.
+        $sql = "DELETE FROM notificacion_cobro_detalle d
+                 WHERE d.id_condominio = :condo
+                   AND NOT EXISTS (
+                        SELECT 1 FROM notificacion_cobro c
+                        WHERE c.id_notificacion = d.id_notificacion
+                   )";
+        $st = $db->prepare($sql);
+        $st->execute([':condo'=>$id_condominio]);
+    } catch (\Throwable $e) {
+        // No interrumpe el flujo; el commit validará si aún queda alguna inconsistencia.
+        error_log('[aprobar] limpiar_detalles_huerfanos: '.$e->getMessage());
+    }
+}
+
 /* ============================================================
    Main
    ============================================================ */
@@ -47,6 +153,11 @@ try {
 
     $db = DB::getInstance();
 
+    // Compatibilidad: garantizar columnas críticas en detalle
+    $db->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS id_cuenta INT");
+    $db->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS fecha_pago DATE");
+    $db->exec("ALTER TABLE IF EXISTS notificacion_cobro_detalle_master ADD COLUMN IF NOT EXISTS referencia_pago VARCHAR(150)");
+
     // Master
     $stM = $db->prepare("SELECT id_notificacion_master, id_tipo, descripcion, anio, mes, fecha_emision, id_moneda
                            FROM public.notificacion_cobro_master
@@ -61,6 +172,18 @@ try {
     $id_tipo = (int)($master['id_tipo'] ?? 0);
     if ($id_tipo <= 0) {
         echo json_encode(['status'=>'error','message'=>'Master sin tipo válido.']);
+        exit;
+    }
+
+    // Detalles con plan y cuenta financiera
+    $stDet = $db->prepare("SELECT id_detalle, id_plan_cuenta, id_cuenta, descripcion, monto, tipo_movimiento,
+                                   fecha_pago, referencia_pago
+                            FROM public.notificacion_cobro_detalle_master
+                           WHERE id_notificacion_master = :idm");
+    $stDet->execute([':idm'=>$id_master]);
+    $detalles = $stDet->fetchAll(\PDO::FETCH_ASSOC) ?: [];
+    if (!$detalles) {
+        echo json_encode(['status'=>'error','message'=>'La master no tiene detalles para generar movimientos.']);
         exit;
     }
 
@@ -79,6 +202,7 @@ try {
 
     $db->beginTransaction();
     $encoladas = 0;
+    $movimientos = ['movimientos_creados' => 0];
 
     if ($id_tipo === 1) {
         // =========================
@@ -182,6 +306,13 @@ try {
             $encoladas++;
         }
 
+        // Movimientos contables a partir del presupuesto ejecutado
+        $movimientos = generar_movimientos_contables($db, array_merge($master,['id_notificacion_master'=>$id_master]), $detalles, $id_condominio);
+
+        // Limpia cualquier detalle huérfano que haya quedado de ejecuciones previas
+        // antes de validar las FKs deferrables en el commit.
+        limpiar_detalles_huerfanos($db, $id_condominio);
+
         // Marcar master emitida
         marcar_master_estado($db, $id_master, 'emitida');
 
@@ -268,6 +399,12 @@ try {
             $encoladas++;
         }
 
+        // Movimientos contables a partir de la relación ejecutada
+        $movimientos = generar_movimientos_contables($db, array_merge($master,['id_notificacion_master'=>$id_master]), $detalles, $id_condominio);
+
+        // Limpia cualquier detalle huérfano previo para no bloquear el commit por la FK.
+        limpiar_detalles_huerfanos($db, $id_condominio);
+
         // Marcar master emitida
         marcar_master_estado($db, $id_master, 'emitida');
 
@@ -292,10 +429,13 @@ try {
         }
     }
 
+    $creados = isset($movimientos['movimientos_creados']) ? (int)$movimientos['movimientos_creados'] : 0;
+
     echo json_encode([
         'status'   => 'ok',
-        'message'  => "Se encolaron {$encoladas} correos para la master #{$id_master}.",
-        'enqueued' => $encoladas
+        'message'  => "Se encolaron {$encoladas} correos y se generaron {$creados} movimientos para la master #{$id_master}.",
+        'enqueued' => $encoladas,
+        'movimientos_creados' => $creados
     ]);
 
 } catch (\Throwable $e) {
